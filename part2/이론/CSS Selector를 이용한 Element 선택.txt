@@ -1,0 +1,11 @@
+CSS Selector를 이용한 Element 선택
+
+Document API
+document.querySelector : css selector를 기반으로 엘리먼트를 선택
+조건에 부합하는 element가 여러개인 경우 첫 엘리먼트만 반환.
+document.querySelectorAll : css selector를 기반으로 만족하는 모든 엘리먼트를 선택
+
+CSS Selector
+# : name 기반으로 선택
+. : class 기반으로 선택
+, : 여러개의 셀렉터를 사용
