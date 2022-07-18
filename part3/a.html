@@ -10,17 +10,39 @@
                 <!-- return false 하는 이유? : 브라우저에서 기본적으로 동작하는 기능인 b.html로 넘어가는 것을 비활성화 하기 위함-->
 
                 이름:<input type="text" name="id"><br>
-                메시지:<input type="text" name="msg" onkeydown="return false;"><br>
+                메시지:<input type="text" name="msg" ><br>  <!--onkeydown="return false;"-->
                 <!-- 마찬가지로 onkeydown에 return false 를 줌으로써 작성되지 않게 할 수도 있음-->
                 <input type="submit">
             </form> 
 
             <script>
                 var t= document.getElementById("form1");
+                // onsubmit이 위에꺼에서 덮어 씌어지면서 from Tag가 아닌 from property가 실행되는 것이다.
                 t.onsubmit = function a() {
                     console.log("from property");
-                    return flase;
+                    return false;
                 }
+
+                function b() {
+                    console.log("from addEventListener");
+                    return false;
+                }
+
+                function c() {
+                    console.log("from addEventListener-2");
+                    return false;
+                }
+
+                t.addEventListener("submit", b);
+                t.addEventListener("submit", c);
+                // 인자를 두개 받는다 addEventListener(어떤 이벤트인지, 이벤트를 핸들링할 함수) 
+                // addEventListener 특징
+                // 다른 이벤트 핸들러를 덮어 씌우지 않고 여러 이벤트 핸들러를 추가할 수 있다.
+
+                t.removeEventListener("submit", b);
+                // 인자를 두개 받는다. removeEventListener(어떤 이벤트인지, 삭제할 함수)
             </script>
+
+
     </body>
  </html>
