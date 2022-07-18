@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+            var req = new XMLHttpRequest(); // HTTP 요청을 만들 수 있는 새로운 객체를 생성하는 명령
+            req.onreadystatechange = function a(){
+                console.log(this.readyState, this.status);
+                if(this.readyState == 4 && this.status == 200) {
+                    console.log(this.response);
+                }
+            } 
+            req.open("GET", "./data.txt");  // http request method와 URL 설정
+            req.send();                     // 요청 전송
+        </script>
+    </head>
+    <body>
+        AJAX
+    </body>
+</html>
